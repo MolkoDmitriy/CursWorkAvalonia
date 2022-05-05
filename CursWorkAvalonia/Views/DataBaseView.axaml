@@ -1,0 +1,38 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="600"
+			 	Width="1000" Height="600"
+             x:Class="CursWorkAvalonia.Views.DataBaseView">
+	<Grid ColumnDefinitions="*,*" RowDefinitions="20*,*">
+		<TabControl Grid.Column="0" Grid.Row="0">
+			<TabItem  Header="Player" VerticalContentAlignment="Center">
+			</TabItem>
+			<TabItem Header="Player Statistic" VerticalContentAlignment="Center">
+			</TabItem>
+			<TabItem Header="Team" VerticalContentAlignment="Center">
+			</TabItem>
+			<TabItem Header="Team Statistic" VerticalContentAlignment="Center">
+			</TabItem>
+			<TabItem Header="NHL Scores" VerticalContentAlignment="Center">
+			</TabItem>
+		</TabControl>
+		<TabControl Grid.Column="1" Grid.Row="0" Items="{Binding $parent[Window].DataContext.Items}">
+			<TabControl.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding Name}" />
+				</DataTemplate>
+			</TabControl.ItemTemplate>
+			<TabControl.ContentTemplate>
+				<DataTemplate>
+					<DockPanel LastChildFill="True">
+					</DockPanel>
+				</DataTemplate>
+			</TabControl.ContentTemplate>
+		</TabControl>
+		<Button Command="{Binding $parent[Window].DataContext.SQLRequestOpen}" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+			Создать Запрос
+		</Button>
+	</Grid>
+</UserControl>

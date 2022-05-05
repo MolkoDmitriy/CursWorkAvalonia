@@ -1,0 +1,48 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="600"
+			 	Width="1000" Height="600"
+             x:Class="CursWorkAvalonia.Views.SQLRequestView">
+
+	<Grid RowDefinitions="18*,*,*,*" ColumnDefinitions="3*,10*">
+
+		<ListBox SelectedItems="Single" Grid.Column="0" Grid.Row="0">
+			<ListBoxItem>first</ListBoxItem>
+			<ListBoxItem>second</ListBoxItem>
+			<ListBoxItem>third</ListBoxItem>
+		</ListBox>
+
+		<Grid Grid.Row="0" Grid.Column="1" RowDefinitions="*,*,*,*,*,*" ColumnDefinitions="*,*,*,*">
+			<TextBlock Grid.Row="0" Grid.Column="2"> Name-request </TextBlock>
+			<RadioButton GroupName="1" Grid.Row="1" Grid.Column="0">
+				<Expander Header="SELECT">
+				</Expander>
+			</RadioButton>
+			<RadioButton GroupName="1" Grid.Row="2" Grid.Column="0">
+				<Expander Header="GROUP BY">
+
+				</Expander>
+			</RadioButton>
+			<RadioButton GroupName="1" Grid.Row="3" Grid.Column="0" >
+				<Expander Header="JOIN">
+				</Expander>
+			</RadioButton>
+		</Grid>
+		
+		<Button Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+			Удалить
+		</Button>
+		
+		<Button Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+			Создать
+		</Button>
+		
+		<Button Command="{Binding $parent[Window].DataContext.SQLRequestRun}" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+			Запустить
+		</Button>
+		
+	</Grid>
+
+</UserControl>
