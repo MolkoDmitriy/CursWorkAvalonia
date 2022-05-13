@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CursWorkAvalonia.Models
+namespace CursWorkAvalonia
 {
-    public class Player
+    public partial class Player
     {
-        public string Name { get; set; }
-        public Player(string name)
+        public Player()
         {
-            Name = name;
+            PlayersStatistics = new HashSet<PlayersStatistic>();
         }
+
+        public long PlayerId { get; set; }
+        public string? Name { get; set; }
+        public long? Age { get; set; }
+        public long? TeamId { get; set; }
+
+        public virtual Team? Team { get; set; }
+        public virtual ICollection<PlayersStatistic> PlayersStatistics { get; set; }
     }
 }
