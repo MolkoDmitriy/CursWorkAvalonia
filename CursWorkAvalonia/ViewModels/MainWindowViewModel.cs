@@ -62,6 +62,8 @@ namespace CursWorkAvalonia.ViewModels
             Teams = new ObservableCollection<Team>();
             TeamsStatistics = new ObservableCollection<TeamsStatistic>();
             Nhlscores = new ObservableCollection<Nhlscore>();
+
+
             using(var db = new NHLDataBaseContext())
             {
             
@@ -74,10 +76,19 @@ namespace CursWorkAvalonia.ViewModels
             Content = new DataBaseViewModel();
             Requests = new ObservableCollection<Request>()
             {
-                new Request("1")
+                new Request("1"),
+                new Request("2")
             };
 
           
+        }
+        public void CreateRequest()
+        {
+            Requests.Add(new Request("New request"));
+        }
+        public void DeleteRequest(Request e)
+        {
+            Requests.Remove(e);
         }
         public void SQLRequestOpen()
         {
