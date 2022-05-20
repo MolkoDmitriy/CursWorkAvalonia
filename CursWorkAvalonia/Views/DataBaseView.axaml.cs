@@ -10,6 +10,7 @@ namespace CursWorkAvalonia.Views
         {
             InitializeComponent();
         }
+        
 
         private void InitializeComponent()
         {

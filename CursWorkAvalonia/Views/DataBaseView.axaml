@@ -9,8 +9,9 @@
 	<Grid ColumnDefinitions="*,*" RowDefinitions="20*,*">
 		<TabControl Grid.Column="0" Grid.Row="0">
 			<TabItem  Header="Player" VerticalContentAlignment="Center">
-				<Grid >
-					<DataGrid BorderBrush="Black" Background="LightCyan" Items="{Binding $parent[Window].DataContext.Players}" AutoGenerateColumns="False">
+				<Grid RowDefinitions="20*,*,*">			
+				<Grid Grid.Row="0">
+					<DataGrid SelectedItem="{Binding $parent[Window].DataContext.SelectedPlayer}" CanUserReorderColumns="True" CanUserResizeColumns="True" CanUserSortColumns="True" BorderBrush="Black" Background="LightCyan" Items="{Binding $parent[Window].DataContext.Players}" AutoGenerateColumns="False">
 						<DataGrid.Columns>
 							<DataGridTextColumn Header="ID" Binding="{Binding PlayerId}"/>
 							<DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
@@ -20,10 +21,17 @@
 						</DataGrid.Columns>
 					</DataGrid>
 				</Grid>
+					<Button Grid.Row="1"  Command="{Binding $parent[Window].DataContext.CreatePlayer}"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+						Новая Запись
+					</Button>
+					<Button CommandParameter="{Binding}" Grid.Row="2" Command="{Binding $parent[Window].DataContext.DeletePlayer}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+						Удалить
+					</Button>
+				</Grid>
 			</TabItem>
-			<TabItem    Header="Player Statistic" VerticalContentAlignment="Center">
+			<TabItem  Header="Player Statistic" VerticalContentAlignment="Center">
 				<Grid>
-					<DataGrid  BorderBrush="Black" Background="LightCyan" Items="{Binding $parent[Window].DataContext.PlayersStatistics}" AutoGenerateColumns="False">
+					<DataGrid CanUserReorderColumns="True" CanUserResizeColumns="True" CanUserSortColumns="True"  BorderBrush="Black" Background="LightCyan" Items="{Binding $parent[Window].DataContext.PlayersStatistics}" AutoGenerateColumns="False">
 						<DataGrid.Columns>
 							<DataGridTextColumn Header="StatisticId" Binding="{Binding StatisticId}"/>
 							<DataGridTextColumn Header="Position" Binding="{Binding Pos}"/>
@@ -38,7 +46,7 @@
 			</TabItem>
 			<TabItem   Header="Team" VerticalContentAlignment="Center">
 				<Grid>
-					<DataGrid BorderBrush="Black" Background="LightCyan" Items="{Binding $parent[Window].DataContext.Teams}" AutoGenerateColumns="False">
+					<DataGrid CanUserReorderColumns="True" CanUserResizeColumns="True" CanUserSortColumns="True" BorderBrush="Black" Background="LightCyan" Items="{Binding $parent[Window].DataContext.Teams}" AutoGenerateColumns="False">
 						<DataGrid.Columns>
 							<DataGridTextColumn Header="ID" Binding="{Binding TeamId}"/>
 							<DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
@@ -48,7 +56,7 @@
 			</TabItem>
 			<TabItem  Header="Team Statistic" VerticalContentAlignment="Center">
 				<Grid>
-					<DataGrid BorderBrush="Black" Background="LightCyan" Items="{Binding $parent[Window].DataContext.TeamsStatistics}" AutoGenerateColumns="False">
+					<DataGrid SelectedItem="" CanUserReorderColumns="True" CanUserResizeColumns="True" CanUserSortColumns="True" BorderBrush="Black" Background="LightCyan" Items="{Binding $parent[Window].DataContext.TeamsStatistics}" AutoGenerateColumns="False">
 						<DataGrid.Columns>
 							<DataGridTextColumn Header="StatisticId" Binding="{Binding StatisticId}"/>
 							<DataGridTextColumn Header="From" Binding="{Binding From}"/>
