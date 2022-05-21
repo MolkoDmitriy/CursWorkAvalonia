@@ -26,37 +26,6 @@ namespace CursWorkAvalonia.ViewModels
             get => _request;
             set => this.RaiseAndSetIfChanged(ref _request,value);
         }    
-     
-        private ObservableCollection<Request> _nhlscore;
-        public ObservableCollection<Request> SelectedNhlScore
-        {
-            get => _nhlscore;
-            set => this.RaiseAndSetIfChanged(ref _nhlscore, value);
-        }
-        private ObservableCollection<Request> _player;
-        public ObservableCollection<Request> SelectedPlayer
-        {
-            get => _player;
-            set => this.RaiseAndSetIfChanged(ref _player, value);
-        }
-        private ObservableCollection<Request> _team;
-        public ObservableCollection<Request> SelectedTeam
-        {
-            get => _team;
-            set => this.RaiseAndSetIfChanged(ref _team, value);
-        }
-        private ObservableCollection<Request> _teamsStatistic;
-        public ObservableCollection<Request> SelectedTeamsStatistic
-        {
-            get => _teamsStatistic;
-            set => this.RaiseAndSetIfChanged(ref _teamsStatistic, value);
-        }
-        private ObservableCollection<Request> _playersStatistic;
-        public ObservableCollection<Request> SelectedPlayersStatistic
-        {
-            get => _playersStatistic;
-            set => this.RaiseAndSetIfChanged(ref _playersStatistic, value);
-        }
 
         private ObservableCollection<Nhlscore> _nhlscores;
         private ObservableCollection<Player> _players;
@@ -146,13 +115,11 @@ namespace CursWorkAvalonia.ViewModels
         public void DeleteTeam(Team e) => Teams.Remove(e);
         public void DeleteTeamsStatistic(TeamsStatistic e) => TeamsStatistics.Remove(e);
         public void DeleteNhlscore(Nhlscore e) => Nhlscores.Remove(e);
-        public void DeletePlayer()
-        {
-        }
+        public void DeletePlayer(Player e) => Players.Remove(e);
         public void DeletePlayersStatistic(PlayersStatistic e) => PlayersStatistics.Remove(e);
         public void CreateTeam() => Teams.Add(new Team() {Name = "new" });
         public void CreateTeamsStatistic() => TeamsStatistics.Add(new TeamsStatistic() { StatisticId = 1});
-        public void Create() => Nhlscores.Add(new Nhlscore() { NhlscoresId =1});
+        public void CreateNhlScore() => Nhlscores.Add(new Nhlscore() { NhlscoresId =1});
         public void CreatePlayer() => Players.Add(new Player() { Name = "new"});
         public void CreatePlayersStatistic() => PlayersStatistics.Add(new PlayersStatistic() { StatisticId =1});
         public void SQLRequestOpen() => Content = new SQLRequestViewModel();
