@@ -7,7 +7,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 using Avalonia.Interactivity;
-
+using System.IO;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Data.Sqlite;
 namespace CursWorkAvalonia.Views
 {
     public partial class DataBaseView : UserControl
@@ -15,7 +18,10 @@ namespace CursWorkAvalonia.Views
         public DataBaseView()
         {
             InitializeComponent();
-          
+            var context = this.DataContext as MainWindowViewModel;
+           
+           
+                
         }
         
         

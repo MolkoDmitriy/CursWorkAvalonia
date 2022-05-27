@@ -7,7 +7,7 @@
              x:Class="CursWorkAvalonia.Views.DataBaseView"
 			 Background="BlanchedAlmond">
 	<Grid ColumnDefinitions="*,*" RowDefinitions="20*,*">
-		<TabControl Grid.Column="0" Grid.Row="0">
+		<TabControl Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
 			<TabItem  Header="Player" VerticalContentAlignment="Center">
 				<Grid RowDefinitions="20*,*">
 					<Grid Grid.Row="0">
@@ -132,19 +132,8 @@
 				</Grid>
 			</TabItem>
 		</TabControl>
-		<TabControl  Grid.Column="1" Grid.Row="0" Items="{Binding $parent[Window].DataContext.Items}">
-			<TabControl.ItemTemplate>
-				<DataTemplate>
-					<TextBlock Text="{Binding Name}" />
-				</DataTemplate>
-			</TabControl.ItemTemplate>
-			<TabControl.ContentTemplate>
-				<DataTemplate>
-					<DockPanel LastChildFill="True">
-					</DockPanel>
-				</DataTemplate>
-			</TabControl.ContentTemplate>
-		</TabControl>
+		
+
 		<Button Command="{Binding $parent[Window].DataContext.SQLRequestOpen}" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 			Создать Запрос
 		</Button>
